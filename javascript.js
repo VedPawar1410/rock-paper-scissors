@@ -5,7 +5,9 @@ let x = 5; //amount of rounds you want to play
 // scoreboard
 let humanScore = 0;
 let computerScore = 0;
+
 while (x > 0) {
+    console.log("******************************************************");
     // get computer choice
     let computerTextChoice = function getComputerChoice() {
         let computerNumberChoice = Math.floor(Math.random() * 3) + 1;
@@ -23,8 +25,7 @@ while (x > 0) {
     // get human choice
     function getHumanChoice() {
         let humanChoice = prompt("Choose (Rock-paper-scissors)", "");
-        console.log("User Choose: ");
-        console.log(humanChoice);
+        console.log(`User Choose: ${humanChoice}`);
         return humanChoice;
     }
 
@@ -34,8 +35,7 @@ while (x > 0) {
     
 
     // rounds
-    console.log("Computer Choose: ");
-    console.log(computerFinalChoice);
+    console.log(`Computer Choose: ${computerFinalChoice}`);
 
     function playRound(computerFinalChoice, humanFinalChoice) {
         const comp = computerFinalChoice.toUpperCase();
@@ -61,8 +61,7 @@ while (x > 0) {
             console.log("Computer wins");
         }
 
-        console.log(`Human Score: ${humanScore}`);
-        console.log(`Computer Score: ${computerScore}`);
+        console.log(`Human Score: ${humanScore} |||| Computer Score: ${computerScore}`);
     }
 
     playRound(computerFinalChoice, humanFinalChoice);
