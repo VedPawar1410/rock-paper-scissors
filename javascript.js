@@ -6,13 +6,13 @@ let computerTextChoice = function getComputerChoice() {
     
     let computerNumberChoice = Math.floor(Math.random() * 3) + 1;
     if(computerNumberChoice === 1){
-        return "Rock";
+        return "ROCK";
     }
     else if(computerNumberChoice === 2){
-        return "Scissors";
+        return "SCISSORS";
     }
     else if(computerNumberChoice === 3){
-        return "Paper";
+        return "PAPER";
     }
     
 };
@@ -26,11 +26,43 @@ function getHumanChoice(){
     let humanChoice = prompt("Choose (Rock-papers-scissors)", "");
     console.log("User Choose: ")
     console.log(humanChoice);
+    return humanChoice;
 }
-getHumanChoice();
-computerTextChoice();
+const humanFinalChoice = getHumanChoice();
+const computerFinalChoice = computerTextChoice();
 
 //scoreboard
 let humanScore=0;
 let computerScore=0;
 
+//rounds
+console.log("Computer Choose: ")
+console.log(computerFinalChoice);
+
+function playRound(computerFinalChoice, humanFinalChoice){
+    const comp = computerFinalChoice.toUpperCase();
+    const human = humanFinalChoice.toUpperCase();
+
+    if(comp === human){
+        console.log("Draw");
+    }
+    else if(comp === 'ROCK' && human==='PAPER'){
+        humanScore++;
+        console.log("HUMAN wins");
+    }
+    else if(comp === 'PAPER' && human==='SCISSORS'){
+        humanScore++;
+        console.log("HUMAN wins");
+    }
+    else if(comp === 'SCISSORS' && human==='ROCK'){
+        humanScore++;
+        console.log("HUMAN wins");
+    }
+    else{
+        computerScore++;
+        console.log("Computer wins");
+    }
+    console.log(humanScore);
+    console.log(computerScore);
+}
+playRound(computerFinalChoice, humanFinalChoice);
