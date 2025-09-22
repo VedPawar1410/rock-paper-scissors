@@ -67,3 +67,14 @@ while (x > 0) {
     playRound(computerFinalChoice, humanFinalChoice);
     x--;
 }
+
+console.log("******************************************************");
+if(humanScore>computerScore){
+    console.log(`Winner of the game is: HUMAN with ${humanScore} points.`);
+}
+else if(computerScore>humanScore){
+    console.log(`Winner of the game is: COMPUTER with ${computerScore} points.`);
+}
+else{
+    console.log(`It is a draw, with both HUMAN and COMPUTER securing ${humanScore} points`);
+}
