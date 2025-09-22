@@ -2,7 +2,9 @@
 console.log("Welcome to Rock Paper Scissors");
 
 let x = 5; //amount of rounds you want to play
-
+// scoreboard
+let humanScore = 0;
+let computerScore = 0;
 while (x > 0) {
     // get computer choice
     let computerTextChoice = function getComputerChoice() {
@@ -29,9 +31,7 @@ while (x > 0) {
     let humanFinalChoice = getHumanChoice();
     let computerFinalChoice = computerTextChoice();
 
-    // scoreboard
-    let humanScore = 0;
-    let computerScore = 0;
+    
 
     // rounds
     console.log("Computer Choose: ");
