@@ -27,3 +27,7 @@ function getHumanChoice(){
     console.log(humanChoice);
 }
 getHumanChoice();
+
+//scoreboard
+let humanScore=0;
+let computerScore=0;
