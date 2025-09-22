@@ -17,4 +17,13 @@ let computerTextChoice = function getComputerChoice() {
     
 };
 computerTextChoice();
+console.log("Computer Chooses: ")
 console.log(computerTextChoice()); //To look at computers choice
+
+//get human choice
+function getHumanChoice(){
+
+    let humanChoice = prompt("Choose (Rock-papers-scissors)", "");
+    console.log(humanChoice);
+}
+getHumanChoice();
