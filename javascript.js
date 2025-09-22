@@ -62,7 +62,7 @@ function playRound(computerFinalChoice, humanFinalChoice){
         computerScore++;
         console.log("Computer wins");
     }
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log(`Human Score: ${humanScore}`);
+    console.log(`Computer Score: ${computerScore}`);
 }
 playRound(computerFinalChoice, humanFinalChoice);
