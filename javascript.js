@@ -16,18 +16,21 @@ let computerTextChoice = function getComputerChoice() {
     }
     
 };
-computerTextChoice();
-console.log("Computer Chooses: ")
-console.log(computerTextChoice()); //To look at computers choice
+
+/* console.log("Computer Chooses: ")
+console.log(computerTextChoice()); //To look at computers choice */
 
 //get human choice
 function getHumanChoice(){
 
     let humanChoice = prompt("Choose (Rock-papers-scissors)", "");
+    console.log("User Choose: ")
     console.log(humanChoice);
 }
 getHumanChoice();
+computerTextChoice();
 
 //scoreboard
 let humanScore=0;
 let computerScore=0;
+
