@@ -8,11 +8,16 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissor = document.querySelector("#scissors");
 
+// scoreboard elements
+const humanScoreEl = document.querySelector("#human-score");
+const computerScoreEl = document.querySelector("#computer-score");
+const resultsDiv = document.querySelector("#results");
+
 rock.addEventListener("click", (e)=>{
     let humanFinalChoice = "Rock";
     let computerFinalChoice = computerTextChoice();
-    console.log(`Human Choose: ${humanFinalChoice}`);
-    console.log(`Computer Choose: ${computerFinalChoice}`);
+    div.textContent=`Human Choose: Rock`;
+    div.textContent=`Computer Choose: ${computerFinalChoice}`;
     playRound(computerFinalChoice, humanFinalChoice);
 })
 
