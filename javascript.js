@@ -74,11 +74,15 @@ function scoreCalculator(humanScore, computerScore){
         winner.textContent=`Winner of the game is: HUMAN with ${humanScore} points.`;
     }
     else if(computerScore>humanScore){
-        winner.textContent`Winner of the game is: COMPUTER with ${computerScore} points.`;
+        winner.textContent=`Winner of the game is: COMPUTER with ${computerScore} points.`;
     }
     else{
-        winner.textContent`It is a draw, with both HUMAN and COMPUTER securing ${humanScore} points`;
+        winner.textContent=`It is a draw, with both HUMAN and COMPUTER securing ${humanScore} points`;
     }
-    process.exit(0); // Exits with a success code (0)
+    
+    // Disable buttons so game "ends"
+    document.querySelector("#rock").disabled = true;
+    document.querySelector("#paper").disabled = true;
+    document.querySelector("#scissors").disabled = true;
 }
 
