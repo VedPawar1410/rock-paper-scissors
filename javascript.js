@@ -14,78 +14,71 @@ const computerScoreEl = document.querySelector("#computer-score");
 const resultsDiv = document.querySelector("#results");
 
 rock.addEventListener("click", (e)=>{
-    let humanFinalChoice = "Rock";
-    let computerFinalChoice = computerTextChoice();
-    div.textContent=`Human Choose: Rock`;
-    div.textContent=`Computer Choose: ${computerFinalChoice}`;
-    playRound(computerFinalChoice, humanFinalChoice);
+    playRound("ROCK");
 })
 
 paper.addEventListener("click", (e)=>{
-    let humanFinalChoice = "Paper";
-    let computerFinalChoice = computerTextChoice();
-    console.log(`Computer Choose: ${computerFinalChoice}`);
-    playRound(computerFinalChoice, humanFinalChoice);
+    playRound("PAPER");
 })
 
 scissors.addEventListener("click", (e)=>{
-    let humanFinalChoice = "Scissors";
-    let computerFinalChoice = computerTextChoice();
-    console.log(`Computer Choose: ${computerFinalChoice}`);
-    playRound(computerFinalChoice, humanFinalChoice);
+    playRound("SCISSORS");
 })
 
-// get computer choice
-let computerTextChoice = function getComputerChoice() {
-    let computerNumberChoice = Math.floor(Math.random() * 3) + 1;
-    if (computerNumberChoice === 1) {
-        return "ROCK";
-    }
-    else if (computerNumberChoice === 2) {
-        return "SCISSORS";
-    }
-    else if (computerNumberChoice === 3) {
-        return "PAPER";
-    }
-};
+// random computer choice
+function computerTextChoice() {
+    const num = Math.floor(Math.random() * 3);
+    return ["ROCK", "PAPER", "SCISSORS"][num];
+}
 
 // rounds
-function playRound(computerFinalChoice, humanFinalChoice) {
-    const comp = computerFinalChoice.toUpperCase();
-    const human = humanFinalChoice.toUpperCase();
+function playRound(human) {
+    const comp = computerTextChoice();
 
+    roundResult="";
     if (comp === human) {
-        console.log("Draw");
+        roundResult="DRAW";
     }
     else if (comp === 'ROCK' && human === 'PAPER') {
         humanScore++;
-        console.log("HUMAN wins");
+        roundResult="Human WINS";
     }
     else if (comp === 'PAPER' && human === 'SCISSORS') {
         humanScore++;
-        console.log("HUMAN wins");
+        roundResult="Human WINS";
     }
     else if (comp === 'SCISSORS' && human === 'ROCK') {
         humanScore++;
-        console.log("HUMAN wins");
+        roundResult="Human WINS";
     }
     else {
         computerScore++;
-        console.log("Computer wins");
+        roundResult="Computer WINS";
+    }
+    resultsDiv.textContent = `Human Choose: ${human} -- Computer Choose: ${comp} ---
+    ${roundResult}`;
+
+    humanScoreEl.textContent=`Human score: ${humanScore}`;
+    computerScoreEl.textContent=`Computer score: ${computerScore}`;
+
+    if(humanScore===5 || computerScore===5){
+        scoreCalculator(humanScore,computerScore);
     }
 
-    console.log(`Human Score: ${humanScore} |||| Computer Score: ${computerScore}`);
 }
 
 function scoreCalculator(humanScore, computerScore){
+    let winner = document.querySelector("#winner");
+    
     if(humanScore>computerScore){
-        console.log(`Winner of the game is: HUMAN with ${humanScore} points.`);
+        winner.textContent=`Winner of the game is: HUMAN with ${humanScore} points.`;
     }
     else if(computerScore>humanScore){
-        console.log(`Winner of the game is: COMPUTER with ${computerScore} points.`);
+        winner.textContent`Winner of the game is: COMPUTER with ${computerScore} points.`;
     }
     else{
-        console.log(`It is a draw, with both HUMAN and COMPUTER securing ${humanScore} points`);
+        winner.textContent`It is a draw, with both HUMAN and COMPUTER securing ${humanScore} points`;
     }
+    process.exit(0); // Exits with a success code (0)
 }
 
